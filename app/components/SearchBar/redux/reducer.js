@@ -4,7 +4,6 @@ import { UPDATE_SEARCH_BAR } from '../../../constants/actions';
 const initialState = {
   searchBarText: '',
   selectedCategory: '',
-  recommendations: []
 };
 
 const actionMappings = {

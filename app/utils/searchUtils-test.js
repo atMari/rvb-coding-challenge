@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import { parseCategoriesFromSearchText } from './searchUtils';
 import searchCategories from '../constants/searchCategories';
+import availableCategories from '../config/searchCategories';
 
 describe('Search Utils', () => {
   describe('parseCategoriesFromSearchText', () => {
@@ -13,11 +14,11 @@ describe('Search Utils', () => {
     const TEST_STRING_6 = 'GUITar';
 
     it('should return an array', () => {
-      const matches1 = parseCategoriesFromSearchText(TEST_STRING_1);
-      const matches2 = parseCategoriesFromSearchText(TEST_STRING_2);
-      const matches3 = parseCategoriesFromSearchText(TEST_STRING_3);
-      const matches4 = parseCategoriesFromSearchText(TEST_STRING_4);
-      const matches5 = parseCategoriesFromSearchText(TEST_STRING_5);
+      const matches1 = parseCategoriesFromSearchText(TEST_STRING_1, availableCategories);
+      const matches2 = parseCategoriesFromSearchText(TEST_STRING_2, availableCategories);
+      const matches3 = parseCategoriesFromSearchText(TEST_STRING_3, availableCategories);
+      const matches4 = parseCategoriesFromSearchText(TEST_STRING_4, availableCategories);
+      const matches5 = parseCategoriesFromSearchText(TEST_STRING_5, availableCategories);
       expect(matches1).to.be.an('array');
       expect(matches2).to.be.an('array');
       expect(matches3).to.be.an('array');
@@ -26,9 +27,9 @@ describe('Search Utils', () => {
     });
 
     it('should find category with partial string match', () => {
-      const matches1 = parseCategoriesFromSearchText(TEST_STRING_1);
-      const matches2 = parseCategoriesFromSearchText(TEST_STRING_2);
-      const matches3 = parseCategoriesFromSearchText(TEST_STRING_3);
+      const matches1 = parseCategoriesFromSearchText(TEST_STRING_1, availableCategories);
+      const matches2 = parseCategoriesFromSearchText(TEST_STRING_2, availableCategories);
+      const matches3 = parseCategoriesFromSearchText(TEST_STRING_3, availableCategories);
       expect(matches1).to.include.members([
         searchCategories.electricGuitars,
         searchCategories.acousticGuitars,
@@ -50,12 +51,12 @@ describe('Search Utils', () => {
     });
 
     it('will not break if a category is not found', () => {
-      const matches4 = parseCategoriesFromSearchText(TEST_STRING_4);
+      const matches4 = parseCategoriesFromSearchText(TEST_STRING_4, availableCategories);
       expect(matches4).to.be.empty; // eslint-disable-line no-unused-expressions
     });
 
     it('should be case insensitive', () => {
-      const matches6 = parseCategoriesFromSearchText(TEST_STRING_6);
+      const matches6 = parseCategoriesFromSearchText(TEST_STRING_6, availableCategories);
       expect(matches6).to.include.members([
         searchCategories.electricGuitars,
         searchCategories.acousticGuitars,

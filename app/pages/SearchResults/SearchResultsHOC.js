@@ -8,7 +8,7 @@ import {
         defaultPaginationPageRange
       } from '../../config/properties';
 // Actions
-import { getSearchResults } from '../../globalActions/search';
+import { getSearchResults } from '../../globalActions/listings';
 // Utils
 import { forwardToSearchResultsPage } from '../../utils/browserHistoryUtils';
 

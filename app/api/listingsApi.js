@@ -5,17 +5,17 @@ import {
         defaultPaginationPage,
         defaultPaginationCountPerPage
       } from '../config/properties';
-import { searchUrl } from '../constants/apiUrls';
+import { listingsUrl } from '../constants/apiUrls';
 import { mockSearchResults } from '../config/mockData/mockResultsData';
 // Utils:
 import { objectToQueryString } from '../utils/queryStringUtils';
 
 const FAKE_REQUEST_DELAY_IN_MS = 1000;
 
-export function getSearchResultsRequest(queryParams) {
+export function getListingsRequest(queryParams) {
   const queryString = objectToQueryString(queryParams);
   return fetch(
-    `${apiUrl}${searchUrl}${queryString}`, {
+    `${apiUrl}${listingsUrl}${queryString}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -23,6 +23,7 @@ export function getSearchResultsRequest(queryParams) {
   });
 }
 
+/* Mock Api For Testing */
 export function fakeGetSearchResultsRequest(queryParams) {
   const page = queryParams.page || defaultPaginationPage;
   const startIndex = (page - 1) * defaultPaginationCountPerPage;

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import SearchForm from '../SearchForm/SearchForm';
 // Actions:
 import { updateSearchBar } from './redux/actions';
+import { getCategories } from '../../globalActions/categories';
 // Utils:
 import { submitSearchForm } from '../../utils/searchUtils';
 
@@ -14,15 +15,9 @@ class SearchBar extends Component {
   static propTypes = {
     searchBarText: PropTypes.string,
     location: PropTypes.object.isRequired,
-    dispatch: PropTypes.func.isRequired
-  }
-
-  static _onSubmit(formValues, formDispatch, formProps) {
-    const { initialValues } = formProps;
-    submitSearchForm({
-      formValues,
-      initialValues
-    });
+    dispatch: PropTypes.func.isRequired,
+    availableCategories: PropTypes.array.isRequired,
+    isFetchingCategories: PropTypes.bool.isRequired
   }
 
   static _renderSearchForm({
@@ -46,6 +41,7 @@ class SearchBar extends Component {
       dispatch,
       location
     } = this.props;
+    dispatch(getCategories());
     dispatch(updateSearchBar(location.query.query));
   }
 
@@ -61,20 +57,30 @@ class SearchBar extends Component {
     }
   }
 
-  render() {
+  _onSubmit = (formValues, formDispatch, formProps) => {
     const {
-      _renderSearchForm,
-      _onSubmit
-    } = SearchBar;
+      initialValues,
+    } = formProps;
+    const { availableCategories } = this.props;
+    submitSearchForm({
+      formValues,
+      initialValues,
+      availableCategories
+    });
+  }
+
+  render() {
+    const { _renderSearchForm } = SearchBar;
     const {
       searchBarText,
+      isFetchingCategories,
     } = this.props;
 
     return (
       <div className="rvb-search-bar">
-        {_renderSearchForm({
+        {!isFetchingCategories && _renderSearchForm({
           searchBarText,
-          onSubmit: _onSubmit
+          onSubmit: this._onSubmit
         })}
       </div>
     );

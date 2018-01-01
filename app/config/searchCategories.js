@@ -1,79 +1,75 @@
 import cms from './messages';
 import cats from '../constants/searchCategories';
 
-export const searchCategories = [
+/* We fetch categories dynamically.  The content below is only useful for testing purposes */
+
+export default [
   {
-    text: cms['category.electricGuitars'],
-    value: cats.electricGuitars
+    name: cms['category.electricGuitars'],
+    slug: cats.electricGuitars
   },
   {
-    text: cms['category.accessories'],
-    value: cats.accessories
+    name: cms['category.accessories'],
+    slug: cats.accessories
   },
   {
-    text: cms['category.parts'],
-    value: cats.parts
+    name: cms['category.parts'],
+    slug: cats.parts
   },
   {
-    text: cms['category.acousticGuitars'],
-    value: cats.acousticGuitars
+    name: cms['category.acousticGuitars'],
+    slug: cats.acousticGuitars
   },
   {
-    text: cms['category.amps'],
-    value: cats.amps
+    name: cms['category.amps'],
+    slug: cats.amps
   },
   {
-    text: cms['category.bassGuitars'],
-    value: cats.bassGuitars
+    name: cms['category.bassGuitars'],
+    slug: cats.bassGuitars
   },
   {
-    text: cms['category.effectsAndPedals'],
-    value: cats.effectsAndPedals
+    name: cms['category.effectsAndPedals'],
+    slug: cats.effectsAndPedals
   },
   {
-    text: cms['category.proAudio'],
-    value: cats.proAudio
+    name: cms['category.proAudio'],
+    slug: cats.proAudio
   },
   {
-    text: cms['category.folkInstruments'],
-    value: cats.folkInstruments
+    name: cms['category.folkInstruments'],
+    slug: cats.folkInstruments
   },
   {
-    text: cms['category.software'],
-    value: cats.software
+    name: cms['category.software'],
+    slug: cats.software
   },
   {
-    text: cms['category.drumsAndPercussion'],
-    value: cats.drumsAndPercussion
+    name: cms['category.drumsAndPercussion'],
+    slug: cats.drumsAndPercussion
   },
   {
-    text: cms['category.homeAudio'],
-    value: cats.homeAudio
+    name: cms['category.homeAudio'],
+    slug: cats.homeAudio
   },
   {
-    text: cms['category.bandAndOrchestra'],
-    value: cats.bandAndOrchestra
+    name: cms['category.bandAndOrchestra'],
+    slug: cats.bandAndOrchestra
   },
   {
-    text: cms['category.keyboardsAndSynths'],
-    value: cats.keyboardsAndSynths
+    name: cms['category.keyboardsAndSynths'],
+    slug: cats.keyboardsAndSynths
   },
   {
-    text: cms['category.djAndLightingGear'],
-    value: cats.djAndLightingGear
+    name: cms['category.djAndLightingGear'],
+    slug: cats.djAndLightingGear
   },
   {
-    text: cms['category.electricKeyboards'],
-    value: cats.electricKeyboards
+    name: cms['category.electricKeyboards'],
+    slug: cats.electricKeyboards
   },
   {
-    text: cms['category.electricPianos'],
-    value: cats.electricPianos
+    name: cms['category.electricPianos'],
+    slug: cats.electricPianos
   }
 ];
-
-export default searchCategories;
-
-export const searchCategoryStrings = searchCategories.map(
-  cat => cat.text.toLowerCase()
-);

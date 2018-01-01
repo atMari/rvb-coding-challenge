@@ -4,10 +4,11 @@ import {
         GET_SEARCH_RESULTS_REQUEST
       } from '../constants/actions';
 import { handleErrors } from '../utils/requestUtils';
-import { fakeGetSearchResultsRequest } from '../api/searchResultsApi';
+import { getListingsRequest } from '../api/listingsApi';
+import { defaultPaginationCountPerPage } from '../config/properties';
 
 /*-----------------------------------
-  GET SEARCH RESULTS
+  GET SEARCH RESULTS (LISTINGS)
 -------------------------------------*/
 export function getSearchResultsSuccess({
   results,
@@ -27,7 +28,7 @@ export function getSearchResultsFail(error) {
   };
 }
 
-export function getSearchResultsRequest() {
+export function triggerSearchResultsRequest() {
   return {
     type: GET_SEARCH_RESULTS_REQUEST,
   };
@@ -35,21 +36,23 @@ export function getSearchResultsRequest() {
 
 export const getSearchResults = queryParams => async (dispatch) => {
   try {
-    dispatch(getSearchResultsRequest());
-    // const response = await getSearchResultsRequest(queryParams);
-    const response = await fakeGetSearchResultsRequest(queryParams);
+    // Let UI know that we are triggering another request:
+    dispatch(triggerSearchResultsRequest());
+    // Add query defaults:
+    const augmentedQueryParams = {
+      ...queryParams,
+      per_page: defaultPaginationCountPerPage
+    };
+    // Make Api Request
+    const response = await getListingsRequest(augmentedQueryParams);
 
     handleErrors(response);
-    // const json = await response.json();
-    const json = response;
+    const json = await response.json();
 
-    const {
-      results,
-      totalCount
-    } = json.searchResultsData;
+    const { listings, total } = json;
     dispatch(getSearchResultsSuccess({
-      results,
-      totalCount
+      results: listings,
+      totalCount: total
     }));
   }
   catch (err) {

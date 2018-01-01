@@ -1,9 +1,14 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 // Local Deps:
 import HeaderToolbar from '../HeaderToolbar';
 import SearchBar from '../SearchBar';
+// Actions:
 
-const SiteContent = ({ children, location }) => (
+const SiteContent = ({
+  children,
+  location
+}) => (
   <div className="rvb-site-content">
     {/* <!--HEADER TOOLBAR --> */}
     <HeaderToolbar />
@@ -15,7 +20,7 @@ const SiteContent = ({ children, location }) => (
 );
 
 SiteContent.propTypes = {
-  children: PropTypes.object.isRequired,
+  children: PropTypes.any,
   location: PropTypes.object.isRequired
 };
 

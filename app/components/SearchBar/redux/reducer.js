@@ -1,13 +1,19 @@
 import { handleAction } from '../../../utils/actionUtils';
-import { UPDATE_SEARCH_BAR } from '../../../constants/actions';
+import {
+        UPDATE_SEARCH_BAR,
+        GET_CATEGORIES_SUCCESS
+      } from '../../../constants/actions';
 
 const initialState = {
   searchBarText: '',
   selectedCategory: '',
+  availableCategories: [],
+  isFetchingCategories: true,
 };
 
 const actionMappings = {
-  [UPDATE_SEARCH_BAR]: '_updateSearchBar'
+  [UPDATE_SEARCH_BAR]: '_updateSearchBar',
+  [GET_CATEGORIES_SUCCESS]: '_getCategoriesSuccess'
 };
 
 const reducer = {
@@ -17,6 +23,15 @@ const reducer = {
     return {
       ...state,
       searchBarText: query
+    };
+  },
+  _getCategoriesSuccess(state, {
+    categories
+  }) {
+    return {
+      ...state,
+      availableCategories: categories,
+      isFetchingCategories: false
     };
   }
 };

@@ -10,6 +10,7 @@ export default {
   'notFound.title': 'Sorry, we couldn\'t find that.',
   'notFound.button.text': 'Home',
   // Categories
+  /* We fetch categories dynamically.  The content below is only useful for testing purposes */
   'category.default': 'Browse By Category',
   'category.electricGuitars': 'Electric Guitars',
   'category.accessories': 'Accessories',

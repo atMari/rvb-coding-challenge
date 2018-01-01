@@ -1,0 +1,17 @@
+.rvb-results-grid {
+  .rvb-results-grid__result {
+    display: table;
+    width: 100%;
+  }
+  .rvb-results-grid__result-img {
+    display: table-cell;
+    width: 200px;
+    img {
+      height: 50px;
+    }
+  }
+  .rvb-results-grid__result-text {
+    display: table-cell;
+    text-align: left;
+  }
+}

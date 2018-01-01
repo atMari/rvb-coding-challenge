@@ -1,5 +1,5 @@
 export const appName = 'Reverb';
-export const apiUrl = 'https://localhost:3000/';
+export const apiUrl = 'https://sandbox.reverb.com/api';
 
 // Pagination
 export const defaultPaginationPageRange = 10;

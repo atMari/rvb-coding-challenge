@@ -1,3 +1,5 @@
+/* We fetch categories dynamically.  The content below is only useful for testing purposes */
+
 export default {
   electricGuitars: 'electricGuitars',
   accessories: 'accessories',

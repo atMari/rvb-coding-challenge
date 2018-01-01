@@ -5,10 +5,9 @@ import { connect } from 'react-redux';
 // Local Deps
 import SearchForm from '../SearchForm/SearchForm';
 // Actions:
-import {
-        submitSearchForm,
-        updateSearchBar
-      } from './redux/actions';
+import { updateSearchBar } from './redux/actions';
+// Utils:
+import { submitSearchForm } from '../../utils/searchUtils';
 
 class SearchBar extends Component {
 
@@ -20,12 +19,10 @@ class SearchBar extends Component {
 
   static _onSubmit(formValues, formDispatch, formProps) {
     const { initialValues } = formProps;
-    return formDispatch(
-      submitSearchForm({
-        formValues,
-        initialValues
-      })
-    );
+    submitSearchForm({
+      formValues,
+      initialValues
+    });
   }
 
   static _renderSearchForm({

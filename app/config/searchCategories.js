@@ -1,8 +1,7 @@
 import cms from './messages';
 import cats from '../constants/searchCategories';
 
-export default [
-  { text: cms['category.default'] },
+export const searchCategories = [
   {
     text: cms['category.electricGuitars'],
     value: cats.electricGuitars
@@ -62,5 +61,19 @@ export default [
   {
     text: cms['category.djAndLightingGear'],
     value: cats.djAndLightingGear
+  },
+  {
+    text: cms['category.electricKeyboards'],
+    value: cats.electricKeyboards
+  },
+  {
+    text: cms['category.electricPianos'],
+    value: cats.electricPianos
   }
 ];
+
+export default searchCategories;
+
+export const searchCategoryStrings = searchCategories.map(
+  cat => cat.text.toLowerCase()
+);

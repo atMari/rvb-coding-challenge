@@ -14,4 +14,6 @@ export default {
   bandAndOrchestra: 'bandAndOrchestra',
   keyboardsAndSynths: 'keyboardsAndSynths',
   djAndLightingGear: 'djAndLightingGear',
+  electricKeyboards: 'electricKeyboards',
+  electricPianos: 'electricPianos',
 };

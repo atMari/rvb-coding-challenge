@@ -26,4 +26,6 @@ export default {
   'category.bandAndOrchestra': 'Band And Orchestra',
   'category.keyboardsAndSynths': 'Keyboards And Synths',
   'category.djAndLightingGear': 'DJ And Lighting Gear',
+  'category.electricKeyboards': 'Electric Keyboards',
+  'category.electricPianos': 'Electric Pianos',
 };

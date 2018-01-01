@@ -85,7 +85,7 @@ export default function SearchResultsHOC(SearchResultsPage) {
         resultsCount,
         this._onPaginationPageChange
       );
-      //Search Results Config:
+      // Search Results Config:
       const config = {
         results,
         isFetchingResults,

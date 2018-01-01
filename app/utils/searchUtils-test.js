@@ -51,7 +51,7 @@ describe('Search Utils', () => {
 
     it('will not break if a category is not found', () => {
       const matches4 = parseCategoriesFromSearchText(TEST_STRING_4);
-      expect(matches4).to.be.empty;
+      expect(matches4).to.be.empty; // eslint-disable-line no-unused-expressions
     });
 
     it('should be case insensitive', () => {
@@ -68,7 +68,7 @@ describe('Search Utils', () => {
     it('should not break if no search text is passed in', () => {
       const matches6 = parseCategoriesFromSearchText();
       expect(matches6).to.be.an('array');
-      expect(matches6).to.be.empty;
+      expect(matches6).to.be.empty; // eslint-disable-line no-unused-expressions
     });
   });
 });

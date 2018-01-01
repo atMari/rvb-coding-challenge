@@ -27,8 +27,9 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: [/* 'Chrome', */'PhantomJS'],
-    singleRun: true,
+    browsers: ['Chrome'/* , 'PhantomJS' */],
+    singleRun: false,
+    debug: true,
     webpack: require('./webpack/config.test'), //
     webpackMiddleware: {
       noInfo: true,

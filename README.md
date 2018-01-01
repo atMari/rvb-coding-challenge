@@ -1,5 +1,12 @@
 ### Reverb Coding Challenge
 
+The below steps were tested successfully with:
+```sh
+yarn v0.27.5
+npm v5.3.0
+node v8.4.0
+```
+
 Make sure you have node and yarn (i.e. brew install yarn) installed, then cd into this repo and run:
 
 ```sh

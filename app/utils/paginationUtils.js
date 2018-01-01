@@ -22,7 +22,8 @@ export function calculateLastPage({
   batchNumber,
   itemsCountPerPage,
   totalBatches,
-  totalItemsCount
+  totalItemsCount,
+  pagesPerBatch
 }) {
   const firstPage = calculateFirstPage({
     batchNumber,
@@ -30,17 +31,17 @@ export function calculateLastPage({
   });
   // On the last batch, we only show available pages:
   if (batchNumber === totalBatches) {
-    const remainder = totalItemsCount % itemsCountPerPage;
-    return (firstPage - 1) + remainder;
+    return Math.ceil(totalItemsCount / itemsCountPerPage);
   }
-  return (firstPage - 1) + itemsCountPerPage;
+  return (firstPage - 1) + pagesPerBatch;
 }
 
 export function calculateTotalBatches(
   totalItemsCount,
-  itemsCountPerPage
+  itemsCountPerPage,
+  pagesPerBatch
 ) {
-  return Math.ceil(totalItemsCount / itemsCountPerPage);
+  return Math.ceil(totalItemsCount / itemsCountPerPage / pagesPerBatch);
 }
 
 export function paginate({
@@ -61,7 +62,11 @@ export function paginate({
   }
   // Calculate batch logic:
   const currentBatch = calculateBatchNumber(activePage, pageRangeDisplayed);
-  const totalBatches = calculateTotalBatches(totalItemsCount, itemsCountPerPage);
+  const totalBatches = calculateTotalBatches(
+    totalItemsCount,
+    itemsCountPerPage,
+    pageRangeDisplayed
+  );
   // Calculate first + last pages:
   const firstPage = calculateFirstPage({
     batchNumber: currentBatch,
@@ -71,13 +76,14 @@ export function paginate({
     batchNumber: currentBatch,
     itemsCountPerPage,
     totalBatches,
-    totalItemsCount
+    totalItemsCount,
+    pagesPerBatch: pageRangeDisplayed
   });
   // Calculate next + previous pages:
-  const hasPreviousPage = currentBatch > 1;
-  const previousPage = hasPreviousPage && firstPage - 1;
-  const hasNextPage = currentBatch < totalBatches;
-  const nextPage = hasNextPage && lastPage + 1;
+  const hasPreviousPage = currentBatch > 1 || activePage > 1;
+  const previousPage = hasPreviousPage ? activePage - 1 : null;
+  const hasNextPage = !(currentBatch === totalBatches && activePage === lastPage);
+  const nextPage = hasNextPage ? activePage + 1 : null;
   return {
     lastPage,
     firstPage,

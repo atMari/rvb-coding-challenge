@@ -5,6 +5,7 @@ The below steps were tested successfully with:
 yarn v0.27.5
 npm v5.3.0
 node v8.4.0
+Chrome Web Browser
 ```
 
 Make sure you have node and yarn (i.e. brew install yarn) installed, then cd into this repo and run:
@@ -19,7 +20,7 @@ To install your dependencies. To run the app for development use the following c
 $ yarn start
 ```
 
-The app will be available on port 8080 on the web.
+The app will be available on port 8080 on the web (http://localhost:8080/).
 
 Run tests with:
 ```sh

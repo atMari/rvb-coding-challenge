@@ -1,0 +1,26 @@
+@import '../../scss/config';
+@import '../../scss/colors';
+
+.rvb-search-results {
+  .rvb-results-grid {
+    width: 40%;
+    margin-top: 40px;
+    margin-left: 30%;
+    margin-bottom: 30px;
+  }
+
+  .rvb-results-grid__result {
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .rvb-loading {
+    text-align: center;
+    img {
+      display: inline-block;
+      height: 300px;
+      margin-bottom: 160px;
+    }
+  }
+}

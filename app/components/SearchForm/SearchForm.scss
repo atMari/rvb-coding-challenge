@@ -1,0 +1,18 @@
+@import '../../scss/config';
+@import '../../scss/colors';
+
+.rvb-search-form {
+
+  .rvb-search-form__input-group {
+    display: table;
+    width: 100%;
+  }
+
+  .rvb-search-form__field {
+    display: table-cell;
+    height: 33px;
+    width: 100%;
+  }
+
+  .rvb-search-form__button-group {}
+}

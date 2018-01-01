@@ -1,0 +1,15 @@
+@import '../../scss/colors';
+
+.rvb-header-toolbar{
+  background-color: $c-rvb-orange;
+  border-radius: 0px;
+  border-color: transparent;
+  margin-bottom: 40px;
+
+  .rvb-header-toolbar__brand-text {
+    color: $c-rvb-dark-gray;
+    font-weight: bold;
+    font-style: italic;
+    cursor: pointer;
+  }
+}

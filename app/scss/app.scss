@@ -1,0 +1,18 @@
+// Config
+@import "./config";
+@import './colors';
+@import './fonts';
+@import "./mixins";
+@import './system';
+@import "./util";
+
+// Vendor
+@import "../../node_modules/font-awesome/scss/font-awesome.scss";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "../../node_modules/animate-scss/animate.scss";
+@import "../../node_modules/react-select/dist/react-select.css";
+
+// Pages
+@import '../pages/SearchResults/SearchResults';
+@import '../pages/NotFound/NotFound';
+@import '../pages/Home/Home';

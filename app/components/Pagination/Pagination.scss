@@ -1,0 +1,29 @@
+@import '../../scss/colors';
+
+.rvb-pagination {
+  display: block;
+  text-align: center;
+  margin: auto;
+
+  .rvb-page {
+    text-align: center;
+    display: inline-block;
+    border: 1px solid $c-rvb-dark-gray;
+    padding: 4px;
+    margin: 4px;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .rvb-page--active {
+    background-color: $c-rvb-orange;
+    color: $c-rvb-white;
+  }
+
+  .rvb-page--next,
+  .rvb-page--prev {
+    width: 50px;
+  }
+}

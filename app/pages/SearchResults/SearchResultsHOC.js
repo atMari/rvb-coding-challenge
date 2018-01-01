@@ -48,12 +48,14 @@ export default function SearchResultsHOC(SearchResultsPage) {
         location: {
           query: {
             page,
-            query
+            query,
+            category
           }
         }
       } = this.props;
       if (nextProps.location.query.page !== page ||
-          nextProps.location.query.query !== query) {
+          nextProps.location.query.query !== query ||
+          nextProps.location.query.category !== category) {
         dispatch(getSearchResults(nextProps.location.query));
       }
     }

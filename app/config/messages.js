@@ -1,6 +1,6 @@
 export default {
   // HomePage
-  'home.promo.text': 'Here is some promo text',
+  'home.promo.text': 'Welcome! You can start a search by typing in the search bar above, and then pressing the magnifying glass button or the Enter key.',
   // Search Form
   'searchForm.searchbar.placeholder': 'Shop for used & new music gear...',
   // Pagination
